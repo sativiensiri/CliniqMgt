@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block header %}
+<header id="header" class="site-header">
+      <nav id="header-nav" class="navbar navbar-expand-lg py-3">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" />
+          </a>
+          <button
+            class="navbar-toggler d-flex d-lg-none order-3 p-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#bdNavbar"
+            aria-controls="bdNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <svg class="navbar-icon">
+              <use xlink:href="#navbar-icon"></use>
+            </svg>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="bdNavbar"
+            aria-labelledby="bdNavbarOffcanvasLabel"
+          >
+            <div class="offcanvas-header px-4 pb-0">
+              <a class="navbar-brand" href="index.html">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" />
+              </a>
+              <button
+                type="button"
+                class="btn-close btn-close-black"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+                data-bs-target="#bdNavbar"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul
+                id="navbar"
+                class="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1"
+              >
+                {% if session['role'] == 'staff' or session['role'] == 'management'%}
+                <li class="nav-item">
+                  <a class="nav-link me-4 active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="#footer">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="#categories">Shop</a>
+                </li>
+                {% endif %}
+
+                {% if session['role'] == 'management' %}
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="#">Blogs</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link me-4 dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    >Pages</a
+                  >
+                  <ul class="dropdown-menu animate slide border">
+                    <li>
+                      <a href="#footer" class="dropdown-item fw-light"
+                        >About <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="#categories" class="dropdown-item fw-light"
+                        >Shop <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="single-product.html"
+                        class="dropdown-item fw-light"
+                        >Single Product
+                        <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="cart.html" class="dropdown-item fw-light"
+                        >Cart <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="checkout.html" class="dropdown-item fw-light"
+                        >Checkout <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="blog.html" class="dropdown-item fw-light"
+                        >Blog <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="single-post.html" class="dropdown-item fw-light"
+                        >Single Post
+                        <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                    <li>
+                      <a href="#contact" class="dropdown-item fw-light"
+                        >Contact <span class="badge bg-primary">Pro</span></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="#contact">Contact</a>
+                </li>
+              </ul>
+              <div class="user-items d-flex">
+                <ul class="d-flex justify-content-end list-unstyled mb-0">
+                  <li class="d-flex pe-3">
+                    {{ session['username'] }}
+                    <a href="{{ url_for('logout') }}" >
+                      <svg class="user ms-2">
+                        <use xlink:href="#user"></use>
+                      </svg><span class="ms-2">ออกจากระบบ</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

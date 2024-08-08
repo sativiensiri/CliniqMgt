@@ -1,0 +1,458 @@
+/*--------------------------------------------------------------
+/** 1. VARIABLES
+--------------------------------------------------------------*/
+:root {
+  --accent-color: #717171;
+  --white-color: #fff;
+  --black-color: #272727;
+  --gray-color: #f3f3f3;
+  --gray-color-200: #e3e3e3;
+  --gray-color-300: #e0e0e0;
+  --gray-color-500: #d0d0d0;
+  --gray-color-800: #3a3a3a;
+  --light-gray-color: #d2d2d2;
+  /* --primary-color: #ff6543; */
+  --primary-color: #7f00ff;
+  --bs-body-color: #272727;
+  --bs-secondary-color: rgba(194, 194, 194, 1);
+  --bs-secondary-rgb: 220, 220, 220;
+  --bs-primary-rgb: 255, 101, 67;
+  --bs-border-color: #e3e3e3;
+  --bs-dropdown-link-active-bg: #f5f5f5;
+  --light-color: #f8f8f8;
+  --light-blue-color: #edf1f3;
+  --navbar-color-color: #131814;
+  --swiper-theme-color: #4a4a4a;
+  --swiper-pagination-color: #4a4a4a;
+
+  --bs-box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.08);
+
+  --bs-btn-font-size: 1rem;
+}
+
+/* on mobile devices below 600px
+     */
+@media screen and (max-width: 600px) {
+  :root {
+    --header-height: 100px;
+    --header-height-min: 80px;
+  }
+}
+
+/* Fonts */
+:root {
+  --body-font: "Outfit", sans-serif;
+  --heading-font: "Outfit", sans-serif;
+}
+
+@media (min-width: 1850px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1540px;
+  }
+}
+
+/*----------------------------------------------*/
+/* 2. GENERAL TYPOGRAPHY */
+/*----------------------------------------------*/
+
+/* 2.1 General Styles
+    /*----------------------------------------------*/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--body-font);
+  font-size: 21px;
+  font-weight: 200;
+  margin: 0;
+}
+p {
+  color: var(--black-color);
+  letter-spacing: 0.01rem;
+  line-height: normal;
+}
+a {
+  color: var(--black-color);
+  text-decoration: none;
+  transition: 0.3s color ease-out;
+}
+a.light {
+  color: var(--light-color);
+}
+a:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+hr {
+  margin: 1.25rem 0;
+  color: var(--gray-color-200);
+  opacity: 1;
+}
+
+/*------------ Background Color -----------*/
+.bg-primary {
+  --bs-bg-opacity: 1;
+  background-color: var(--primary-color) !important;
+}
+.bg-gray {
+  background: var(--gray-color);
+}
+.bg-dark {
+  background: var(--black-color);
+}
+.bg-light {
+  background: var(--light-color);
+}
+.bg-light-gray {
+  background: #f5f5f5;
+}
+/* - Section Padding
+  --------------------------------------------------------------*/
+.padding-xsmall {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.padding-small {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.padding-medium {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+.padding-large {
+  padding-top: 7em;
+  padding-bottom: 7em;
+}
+.padding-xlarge {
+  padding-top: 9.5em;
+  padding-bottom: 9.5em;
+}
+
+/* - Section margin
+  --------------------------------------------------------------*/
+.margin-small {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.margin-medium {
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+.margin-large {
+  margin-top: 7em;
+  margin-bottom: 7em;
+}
+.margin-xlarge {
+  margin-top: 9.5em;
+  margin-bottom: 9.5em;
+}
+
+/* 2.2 Section Title
+  /*----------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 200;
+  line-height: 115%;
+}
+h4,
+h5,
+h6 {
+  color: var(--light-black-color);
+}
+
+h1 {
+  font-size: 3.75rem;
+}
+h2 {
+  font-size: 3.188rem;
+}
+h3 {
+  font-size: 1.875rem;
+}
+h4 {
+  font-size: 1.375rem;
+}
+h5 {
+  font-size: 1.313rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  letter-spacing: 0.01rem;
+}
+h6 {
+  font-size: 1.25rem;
+}
+.section-title h3 {
+  width: max-content;
+}
+
+.section-title h3::after {
+  content: "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////";
+  font-size: 19px;
+  color: var(--gray-color-500);
+  letter-spacing: 0.06rem;
+  margin-left: 16px;
+}
+
+@media only screen and (max-width: 450px) {
+  .section-title h3 {
+    width: auto;
+  }
+  .section-title h3::after {
+    display: none;
+  }
+  #items-listing .section-title h3::after,
+  aside .sidebar .section-title h3::after {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#items-listing .section-title h3::after {
+  margin-top: 20px;
+}
+#items-listing .section-title h3::after,
+aside .sidebar .section-title h3::after {
+  margin-left: 0;
+}
+
+@media only screen and (max-width: 999px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.95rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.24rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Logo */
+.logo {
+  /* background: url("images/Logo.png") no-repeat scroll center; */
+  width: 50px;
+  height: 60px;
+}
+
+/*--------------------------------------------------------------
+/** 2.3 Buttons
+--------------------------------------------------------------*/
+.btn {
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: none;
+  padding: 1.125rem 2.625rem;
+  font-size: 1rem;
+  border-radius: 200px;
+  cursor: pointer;
+}
+.btn:hover,
+.btn:focus-visible,
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  color: var(--white-color);
+  background-color: var(--black-color);
+}
+.btn-dark {
+  background-color: var(--black-color);
+}
+.btn-dark:hover {
+  background-color: var(--primary-color);
+}
+
+/*--------------------------------------------------------------
+/** 3. CONTENT ELEMENTS
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+/** 3.1 Form Control
+--------------------------------------------------------------*/
+.form-control {
+  padding: 1rem;
+  font-size: 21px;
+  font-weight: 200;
+  letter-spacing: 0.01rem;
+  line-height: normal;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: #131814;
+}
+input.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: var(--black-color);
+}
+
+/*--------------------------------------------------------------
+/** 3.2 Form Select
+--------------------------------------------------------------*/
+.filter-blog .form-select,
+.filter-shop .form-select {
+  padding: 0;
+  font-size: 21px;
+  font-weight: 200;
+  border: none;
+  background-color: transparent;
+  line-height: normal;
+  width: 180px;
+}
+.form-select:focus {
+  box-shadow: none;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.form-check-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(243, 141, 68, 0.25);
+}
+
+/* 4.1 Header
+/*----------------------------------------------*/
+.site-header {
+  width: 100%;
+  z-index: 10;
+  transition: background 0.3s ease-out;
+}
+.navbar-toggler svg.navbar-icon {
+  width: 50px;
+  height: 50px;
+}
+.navbar-nav .nav-item a.nav-link {
+  font-size: 0.7619em;
+  font-weight: 300;
+  letter-spacing: 0.09em;
+  color: var(--black-color);
+}
+.navbar-nav .nav-item a.nav-link.active,
+.navbar-nav .nav-item a.nav-link:focus,
+.navbar-nav .nav-item a.nav-link:hover {
+  color: var(--primary-color);
+}
+.nav-tabs > button {
+  color: var(--primary-color);
+}
+.nav-tabs > button:hover {
+  color: var(--gray-color-800);
+}
+.modal {
+  --bs-modal-zindex: 99999;
+}
+.modal-dialog {
+  max-width: 800px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.dropdown-menu {
+  --bs-dropdown-link-active-color: var(--primary-color);
+  --bs-dropdown-link-active-bg: #f5f5f5;
+  --bs-dropdown-zindex: 99999;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
+}
+.cart-dropdown .dropdown-menu,
+.wishlist-dropdown .dropdown-menu {
+  min-width: 21rem;
+}
+.cart-dropdown.dropdown a::after,
+.wishlist-dropdown.dropdown a::after {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .cart-dropdown .dropdown-menu,
+  .wishlist-dropdown .dropdown-menu {
+    min-width: fit-content;
+  }
+}
+
+/*------------ Offcanvas -------------- */
+#header-nav .navbar-toggler:focus {
+  box-shadow: none;
+}
+#header-nav .offcanvas {
+  transition: 0.5s ease-in-out;
+}
+#header-nav .offcanvas.show {
+  z-index: 99999;
+}
+#header-nav .offcanvas-end {
+  width: 500px;
+}
+
+/*------------ Top User Icons -----------*/
+.site-header .user-items svg {
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 991px) {
+  #navbar .user-items {
+    display: none;
+  }
+}
+
+/*------------Swiper Arrow -----------*/
+.swiper-next,
+.swiper-prev {
+  color: var(--black-color);
+  z-index: 9999;
+}
+.swiper-button-disabled {
+  color: var(--gray-color-500);
+}
+
+@media only screen and (max-width: 765px) {
+  section#billboard {
+    height: 100vh !important;
+  }
+}

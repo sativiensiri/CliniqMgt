@@ -1,0 +1,96 @@
+{% extends 'nav.html' %}
+
+{% block title %}Services Page{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container mt-3 mb-4">
+        <h2>ลงทะเบียนคนไข้ใหม่</h2>
+    </div>
+</section>
+
+<section class="input-info">
+    <div class="container">
+      <div class="wrapper">
+          <form id="services-form" method="post" action="{{ url_for('addnewpatient') }}">
+              <div>
+                  <!-- SECTION 1 -->
+                  <h4></h4>
+                  <section>
+                      <div class="form-row"> <input id="patient-name" name="patient-name" type="text" class="form-control mb-3" placeholder="ชื่อ"> </div>
+                      <div class="form-row row">
+                          <div class="col-md-6">
+                            <input
+                              id="patient-email"
+                              name="patient-email"
+                              type="text"
+                              class="form-control md mb-3"
+                              placeholder="อีเมล์"
+                            />
+                          </div>
+                          <div class="col-md-6">
+                            <input
+                              id="patient-phone"
+                              name="patient-phone"
+                              type="text"
+                              class="form-control md mb-3"
+                              placeholder="หมายเลขโทรศัพท์"
+                            />
+                          </div>
+                      </div>
+                      <div class="form-row"> <input id="patient-address" name="patient-address" type="text" class="form-control mb-3" placeholder="ที่อยู่"> </div>
+                  </section> <!-- SECTION 2 -->
+                  <h4></h4>
+                  <section>
+                    <div class="form-row row">
+                      <div class="col-md-4">
+                        <input
+                          id="patient-city"
+                          name="patient-city"
+                          type="text"
+                          class="form-control mb-3"
+                          placeholder="จังหวัด"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <input
+                          id="patient-zipcode"
+                          name="patient-zipcode"
+                          type="text"
+                          class="form-control mb-2"
+                          placeholder="ระหัสไปรษณีย์"
+                        />
+                      </div>
+                      <div class="col-md-4">
+                        <select class="form-select" aria-label="Select Gender" id="patient-gender" name="patient-gender">
+                          <option selected>เพศ</option>
+                          <option value="male">ชาย</option>
+                          <option value="female">หญิง</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-row" style="margin-bottom: 18px">
+                      <textarea
+                        name="patient-info"
+                        id="patient-info"
+                        class="form-control mb-2"
+                        placeholder="Any order note about delivery or special offer"
+                        style="height: 108px"
+                      ></textarea>
+                    </div>
+                  </section>
+              </div>
+              <button
+                  type="submit"
+                  name="login-submit"
+                  id="login-sub"
+                  value="login"
+                  class="btn btn-dark w-100 my-3"
+                >
+                  บันทึกข้อมูล
+              </button>
+          </form>
+      </div>
+    </div>
+</section>
+{% endblock %}
